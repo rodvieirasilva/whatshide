@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
 
-  "name": "Remove chats WhatsApp",
+  "name": "WhatsHide",
   "description": "This extension remove chats of WhatsApp tab by tags",
   "version": "1.0",
 
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "images/icon.png",
     "default_popup": "popup.html",
     "default_title": "Edit tags remove WhatsApp"
   },
@@ -14,7 +14,7 @@
   "content_scripts": [
     {
       "matches": ["http://web.whatsapp.com/*", "https://web.whatsapp.com/*", "http://whatsapp.com/*", "https://whatsapp.com/*"],
-      "js": ["jquery-3.1.0.min.js", "filterdom.js"]
+      "js": ["/scripts/jquery-3.1.0.min.js", "/scripts/filterdom.js"]
     }
   ],
 
