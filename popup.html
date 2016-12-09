@@ -1,0 +1,36 @@
+<!doctype html>
+<!--
+This page is shown when the extension button is clicked, because the
+"browser_action" field in manifest.json contains the "default_popup" key with
+value "popup.html".
+-->
+<html ng-app="blockWhatsApp">
+<head>
+  <title>WhatsApp Block Chats</title>
+  <script src="angular.min.js"></script>
+  <script src="popup.js"></script>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <h2>WhatsApp Block Chats</h2>
+  <div ng-controller="PopupController as popupController">
+    <a href="" ng-click="popupController.clearUncheckeds()">Clear</a>
+
+    <a href="" ng-click="popupController.clearAll()">Clear All</a>
+
+    <ul class="unstyled">
+      <li ng-repeat="word in popupController.words track by $index">
+        <label class="checkbox">
+          <input type="checkbox" ng-model="word.active" ng-click="popupController.saveChanges()">
+          <span class="active-{{word.active}}">{{word.value}}</span>
+        </label>
+      </li>
+    </ul>
+    <form ng-submit="popupController.addWord()">
+      <input type="text" ng-model="popupController.wordValue"  size="30" placeholder="add new word here">
+      <input class="btn-primary" type="submit" value="add">
+    </form>
+  </div>
+</body>
+</html>
