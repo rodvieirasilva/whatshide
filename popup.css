@@ -2,3 +2,12 @@
   text-decoration: line-through;
   color: grey;
 }
+.container{
+	min-width: 300px;
+}
+.up-part{
+	background-color: #28631C;
+	color: #FFFFFF;
+	padding: 5px;
+	text-align: center;
+}
