@@ -14,26 +14,49 @@
   angular.module('blockWhatsApp', [])
   .controller('PopupController',  ['$scope',function($scope) {
     var popupController = this;
+	
+	
+	popupController.btnPassawordText = "Save";
+	popupController.showError = false;  
+	
     popupController.words = [{value: 'familia', active: true}];
 
     chrome.storage.sync.get('words',
-    function (item){
+		function (item){
 
-      if( Object.prototype.toString.call( item.words ) === '[object Array]' ) {
-        popupController.words = [];
-        angular.forEach(item.words, function(word) {
-          popupController.words.push(word);
+		  if( Object.prototype.toString.call( item.words ) === '[object Array]' ) {
+			popupController.words = [];
+			angular.forEach(item.words, function(word) {
+			  popupController.words.push(word);
 
-        });
-        $scope.$apply();
-      }
-    });
+			});
+			$scope.$apply();
+		  }
+		});
+		
+	chrome.storage.sync.get('password',
+		function (passwordObj){			
+			password = passwordObj.password;
+			popupController.showContent = true;
+			popupController.showPassword = false;
+			if( password && password.length > 0) {
+				popupController.passwordOriginalValue = password;
+				popupController.showPassword = true;
+				popupController.showContent = false;
+				popupController.btnPassawordText = "Login";
+			}
+			$scope.$apply();
+		});
 
     popupController.addWord = function() {
-      popupController.words.push({value:popupController.wordValue, active:true});
-      popupController.wordValue = '';
-
-      popupController.saveChanges();
+		popupController.wordValue = popupController.wordValue.trim();
+		if(popupController.wordValue.length > 1)
+		{
+			
+			popupController.words.push({value:popupController.wordValue, active:true});
+			popupController.wordValue = '';
+			popupController.saveChanges();
+		}
 
     };
 
@@ -44,8 +67,45 @@
         $scope.$apply();
 
       });
-
-
+    }
+	popupController.addPassword = function()
+    {
+	 
+	  popupController.showContent = false;
+	  popupController.showPassword = true;
+	  popupController.showError = false; 	 
+	  popupController.btnPassawordText = "Save";
+	  $scope.$apply();
+    }
+	
+	popupController.addPasswordValue = function()
+    {
+		if(popupController.btnPassawordText == "Login")
+		{
+			if(popupController.passwordOriginalValue == popupController.passwordValue)
+			{
+				popupController.showContent = true;
+				popupController.showPassword = false;
+				popupController.showError = false;  
+				popupController.passwordValue = '';
+			}
+			else
+			{
+				popupController.showError = true;  
+			}
+			//$scope.$apply();
+		}
+		else{
+			chrome.storage.sync.set({'password': popupController.passwordValue }, function() {
+				$scope.$apply();
+				
+				popupController.showContent = true;
+				popupController.showPassword = false;
+				$scope.$apply();				
+			});
+	  }
+	  
+	  
     }
 
     popupController.clearUncheckeds = function() {

@@ -2,13 +2,13 @@
   "manifest_version": 2,
 
   "name": "WhatsHide",
-  "description": "This extension remove chats of WhatsApp tab by tags",
+  "description": "This extension hide Unwanted chats of WhatsApp Web",
   "version": "1.0",
 
   "browser_action": {
     "default_icon": "images/icon.png",
     "default_popup": "popup.html",
-    "default_title": "Edit tags remove WhatsApp"
+    "default_title": "Edit Unwanted chats  WhatsApp"
   },
 
   "content_scripts": [

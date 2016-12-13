@@ -1,16 +1,24 @@
 //do some things
 setTimeout(continueExecution, 100); //wait ten seconds before continuing
 
-var str;
+String.prototype.strip = function(){
+ return this
+         .replace(/[áàãâä]/gi,"a")
+         .replace(/[éè¨ê]/gi,"e")
+         .replace(/[íìïî]/gi,"i")
+         .replace(/[óòöôõ]/gi,"o")
+         .replace(/[úùüû]/gi, "u")
+         .replace(/[ç]/gi, "c")
+         .replace(/[ñ]/gi, "n")
+         .replace(/[^a-zA-Z0-9]/g," ");
+}
 
-function containsAny(str, substrings) {
-  for (var i = 0; i != substrings.length; i++) {
-    if(substrings[i].active) {
-      var substring = substrings[i].value.trim();
-      if (str.indexOf(substring) != - 1) {
-        return substring;
-      }
-    }
+String.prototype.containsAny = function(substrings) {
+  for (var i = 0; i != substrings.length; i++) {    
+	  var substring = substrings[i].toLowerCase().strip();
+	  if (this.indexOf(substring) != - 1) {
+		return substring;
+	  }    
   }
   return null;
 }
@@ -18,9 +26,9 @@ function containsAny(str, substrings) {
 
 function percorrerChats(index) {
   var el = $(this);
-  str = el.html();
+  var str = el.html();
 
-  if (containsAny(str, substrings)) {
+  if (str.toLowerCase().strip().containsAny(substrings)) {
     el.parent().parent().hide();
   }
   else {
@@ -31,7 +39,16 @@ function percorrerChats(index) {
 var substrings;
 
 function onGetValue(item) {
-  substrings = item.words;
+  
+  substrings = [];
+  for(var i=0;i<item.words.length;i++)
+  {
+	  if(item.words[i].active)
+	  {
+		substrings = substrings.concat(item.words[i].value.split(" "));
+	  }
+  }
+  
   var itens  = document.querySelectorAll(".chat");
   $(itens).each(percorrerChats);
 
