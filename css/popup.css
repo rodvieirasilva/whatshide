@@ -5,18 +5,18 @@ li{
   color: grey;
 }
 .container{
-	min-width: 350px;
+	min-width: 380px;
 }
 .up-part{
 	color: #FFFFFF;
-	width: 350px;
+	width: 380px;
 	border-bottom: thin #C7C9C5 solid;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	
 }
 .bot-part{
-	width: 350px;
+	width: 380px;
 	border-top: thin #C7C9C5 solid;
 	padding-top: 10px;
 	padding-bottom: 10px;

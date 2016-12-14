@@ -9,7 +9,7 @@
   <script src="scripts/popup.js"></script>
   <link rel="stylesheet" href="css/popup.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  
+
 </head>
 
 <body>
@@ -23,7 +23,7 @@
   			<div ng-controller="PopupController as popupController">
     			
 				<div id="divContent" ng-show="popupController.showContent">
-				<span class="text-info text-center col-sm-12">Use the toogle button to hide/show chats</span>
+				<span class="text-info text-center col-sm-12">{{desc}}</span>
 					<ul class="unstyled">
 						<li ng-repeat="word in popupController.words track by $index">
 							<label class="checkbox switch">
@@ -36,7 +36,7 @@
 				
 					<form ng-submit="popupController.addWord()">
 						<div class="input-group">
-							<input class="form-control" type="text" ng-model="popupController.wordValue"  placeholder="add new word here">
+							<input class="form-control" type="text" ng-model="popupController.wordValue"  placeholder="{{place_newword}}">
 							<label class="input-group-btn">
 								<button class="btn btn-success" type="submit" value="add">
 									<i class="glyphicon glyphicon-plus"></i>
@@ -45,22 +45,22 @@
 						</div>
 					</form>
 					<div class="btn-group-sm buttons">
-						<a class="btn btn-success" href="" ng-click="popupController.clearUncheckeds()">Clear</a>
-						<a class="btn btn-success" href="" ng-click="popupController.clearAll()">Clear All</a>
-						<a class="btn btn-danger pull-right" href="" ng-click="popupController.addPassword()">Add/Change Password</a>
+						<a class="btn btn-success" href="" ng-click="popupController.clearUncheckeds()">{{btn_clear}}</a>
+						<a class="btn btn-success" href="" ng-click="popupController.clearAll()">{{btn_clearall}}</a>
+						<a class="btn btn-danger pull-right" href="" ng-click="popupController.addPassword()">{{btn_changepw}}</a>
 					</div>    	
 				</div>    			
 				<div id="divPassword" ng-show="popupController.showPassword">
 					<form ng-submit="popupController.addPasswordValue()" id="login-form">
 						<div class="input-group">
-							<input class="form-control" type="password" ng-model="popupController.passwordValue" placeholder="password here">
+							<input class="form-control" type="password" ng-model="popupController.passwordValue" placeholder="{{place_newpw}}">
 							<label class="input-group-btn">
 								<button class="btn btn-danger" type="submit" ng-value="popupController.btnPassawordText"><i class="glyphicon glyphicon-log-in"></i></button>
 							</label>
 						</div>
 						<div class="alert alert-danger" role="alert" ng-show="popupController.showError">
 							<span class="sr-only">Error:</span>
-							Password Invalid!
+							{{err_wrong}}
 						</div>
 					</form>
 				</div>
