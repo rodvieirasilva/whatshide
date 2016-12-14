@@ -2,7 +2,6 @@ li{
 	list-style-type: none;
 }
 .active-false {
-  text-decoration: line-through;
   color: grey;
 }
 .container{

@@ -128,21 +128,3 @@
   }]);
 
 })();
-
-
-// document.addEventListener('DOMContentLoaded', function() {
-
-// //chrome.storage.sync.get('value',
-// //	function (item){
-// //		$("#txtIngorar").val(item.value.toString());
-// //	});
-
-// //$( "#btnSalvar" ).click(saveIgnore);
-
-
-// });
-
-// function saveIgnore() {
-// // Save it using the Chrome extension storage API.
-// chrome.storage.sync.set({'value': $("#txtIngorar").val().split(',') }, function() {});
-// }
