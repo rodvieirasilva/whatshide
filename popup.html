@@ -10,13 +10,13 @@ value "popup.html".
   <script src="scripts/angular.min.js"></script>
   <script src="scripts/popup.js"></script>
   <link rel="stylesheet" href="css/popup.css">
-  <link rel="stylesheet" href="css/flatly.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   
 </head>
 
 <body>
- 			<div class="up-part">
-  				<h4>WhatsHide</h4>
+ 			<div class="up-part col-sm-12">
+ 				<img class="img-responsive" alt="WhatsHide" src="images/wh.png"/>
 			</div>
 	<div class="container">
  		<div class="col-md-12">
@@ -25,11 +25,13 @@ value "popup.html".
   			<div ng-controller="PopupController as popupController">
     			
 				<div id="divContent" ng-show="popupController.showContent">
+				<span class="text-info text-center col-sm-12">Use the toogle button to hide/show chats</span>
 					<ul class="unstyled">
 						<li ng-repeat="word in popupController.words track by $index">
-							<label class="checkbox">
+							<label class="checkbox switch">
 								<input type="checkbox" ng-model="word.active" ng-click="popupController.saveChanges()">
-								<span class="active-{{word.active}}">{{word.value}}</span>
+								<div class="slider round"></div>
+								<span class="active-{{word.active}}">{{word.value}}</span>	
 							</label>
 						</li>
 					</ul>
@@ -38,24 +40,26 @@ value "popup.html".
 						<div class="input-group">
 							<input class="form-control" type="text" ng-model="popupController.wordValue"  placeholder="add new word here">
 							<label class="input-group-btn">
-								<input class="btn btn-primary" type="submit" value="add">
+								<button class="btn btn-success" type="submit" value="add">
+									<i class="glyphicon glyphicon-plus"></i>
+								</button>
 							</label>
 						</div>
 					</form>
-					<div class="col-sm-6">
-						<a class="label label-warning" href="" ng-click="popupController.clearUncheckeds()">Clear</a>
-						<a class="label label-danger" href="" ng-click="popupController.clearAll()">Clear All</a>
-					</div>
-					<div class="col-sm-6">
-						<a class="label label-info" href="" ng-click="popupController.addPassword()">Add/Change Password</a>
+					<div class="btn-group-sm buttons">
+						<a class="btn btn-success" href="" ng-click="popupController.clearUncheckeds()">Clear</a>
+						<a class="btn btn-success" href="" ng-click="popupController.clearAll()">Clear All</a>
+						<a class="btn btn-danger pull-right" href="" ng-click="popupController.addPassword()">Add/Change Password</a>
 					</div>    	
 				</div>    			
 				<div id="divPassword" ng-show="popupController.showPassword">
-					<form ng-submit="popupController.addPasswordValue()">
-						<input class="form-control" type="password" ng-model="popupController.passwordValue">
-						<label class="input-group-btn">
-							<input class="btn btn-primary" type="submit" ng-value="popupController.btnPassawordText">
-						</label>
+					<form ng-submit="popupController.addPasswordValue()" id="login-form">
+						<div class="input-group">
+							<input class="form-control" type="password" ng-model="popupController.passwordValue" placeholder="password here">
+							<label class="input-group-btn">
+								<button class="btn btn-danger" type="submit" ng-value="popupController.btnPassawordText"><i class="glyphicon glyphicon-log-in"></i></button>
+							</label>
+						</div>
 						<div class="alert alert-danger" role="alert" ng-show="popupController.showError">
 							<span class="sr-only">Error:</span>
 							Password Invalid!
@@ -65,6 +69,9 @@ value "popup.html".
 					
   			</div>
 		</div>
+	</div><!--end container----------------------------------------->
+	<div class="bot-part col-sm-12">
+		<span class="text-muted">use este espaco para fale-conosco, duvidas para, doe pra gente etc</span>
 	</div>
 </body>
 </html>
