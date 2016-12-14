@@ -14,6 +14,34 @@
   angular.module('blockWhatsApp', [])
   .controller('PopupController',  ['$scope',function($scope) {
     var popupController = this;
+	  
+	  if(navigator.browserLanguage) {  
+		  var lang = navigator.browserLanguage;    
+	  }
+	  else if(navigator.language) {
+		  var lang = navigator.language;
+	  }
+ 
+      if(lang == 'pt-BR'){
+		  $scope.desc = 'Use os controles para esconder as conversas';
+		  $scope.btn_clear = 'Limpar';
+		  $scope.btn_clearall = 'Limpar Todos';
+		  $scope.btn_changepw = 'Adicionar/Mudar Senha';
+		  $scope.place_newword= 'Digite uma nova palavra aqui';
+		  $scope.place_newpw= 'Senha aqui';
+		  $scope.err_wrong= 'Senha inválida!';
+		  
+		  
+	  }
+	  else{
+	  	  $scope.desc = 'Use the toggle button to hide/show chats';
+		  $scope.btn_clear = 'Clear';
+		  $scope.btn_clearall = 'Clear All';
+		  $scope.btn_changepw = 'Add/Change Password';
+		  $scope.place_newword= 'Input new word here';
+		  $scope.place_newpw= 'Password here';
+		  $scope.err_wrong= 'Password inavelid!';
+	  }
 	
 	
 	popupController.btnPassawordText = "Save";
