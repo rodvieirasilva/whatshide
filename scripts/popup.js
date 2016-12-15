@@ -29,9 +29,7 @@
 		  $scope.btn_changepw = 'Adicionar/Mudar Senha';
 		  $scope.place_newword= 'Digite uma nova palavra aqui';
 		  $scope.place_newpw= 'Senha aqui';
-		  $scope.err_wrong= 'Senha inválida!';
-		  
-		  
+		  $scope.err_wrong= 'Senha inválida!';	  		  
 	  }
 	  else{
 	  	  $scope.desc = 'Use the toggle button to hide/show chats';
@@ -136,6 +134,13 @@
 	  
     }
 
+	popupController.clearSingle = function(index) {
+
+	  popupController.words.splice(index,1);
+
+      popupController.saveChanges();
+    };
+	
     popupController.clearUncheckeds = function() {
       var olds = popupController.words;
       popupController.words = [];

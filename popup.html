@@ -26,11 +26,15 @@
 				<span class="text-info text-center col-sm-12">{{desc}}</span>
 					<ul class="unstyled">
 						<li ng-repeat="word in popupController.words track by $index">
-							<label class="checkbox switch">
-								<input type="checkbox" ng-model="word.active" ng-click="popupController.saveChanges()">
-								<div class="slider round"></div>
-								<span class="active-{{word.active}}">{{word.value}}</span>	
-							</label>
+							<div class="input-group row" >
+								<label class="checkbox-inline switch">
+									<input type="checkbox" ng-model="word.active" ng-click="popupController.saveChanges()">
+									<div class="slider round"></div>
+								</label>
+									<span class="itens active-{{word.active}}">{{word.value}}</span>
+								<a class="del"><i class="glyphicon glyphicon-trash pull-right" ng-click="popupController.clearSingle($index)"></i></a>	
+							
+							</div>
 						</li>
 					</ul>
 				

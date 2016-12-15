@@ -29,6 +29,22 @@ li{
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
+.itens{
+	font-weight: bold;
+	width: 200px;
+}
+.row{
+	margin-bottom: 5px;
+}
+.del{
+	margin-left: 5px;
+	opacity:0; 
+    transition:opacity .5s;
+}
+.del:hover{
+	opacity: 1;
+}
+
 
 
 
@@ -40,6 +56,7 @@ li{
   display: inline-block;
   width: 32px;
   height: 20px;
+  margin-right: 10px;
 }
 .switch span{
 	padding-left: 50px;
