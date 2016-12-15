@@ -81,7 +81,7 @@
 
 
                 for (var i = 0; i < popupController.words.length; i++) {
-                    if (popupController.words[i].value.toLowerCase() == popupController.wordValue) {
+                    if (popupController.words[i].value.toLowerCase() == popupController.wordValue.toLowerCase()) {
                         return;
                     }
                 }
