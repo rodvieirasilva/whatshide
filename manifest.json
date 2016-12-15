@@ -1,14 +1,16 @@
 {
-  "manifest_version": 2,
-
+  "manifest_version": 2,  
+  
   "name": "WhatsHide",
-  "description": "This extension hide Unwanted chats of WhatsApp Web",
-  "version": "1.0",
+  "description": "__MSG_descriptionApp__",
+  "version": "1.1",
+  
+  "default_locale" : "es",
 
   "browser_action": {
     "default_icon": "images/icon.png",
     "default_popup": "popup.html",
-    "default_title": "Edit Unwanted chats  WhatsApp"
+    "default_title": "__MSG_defaultTitle__"
   },
 
   "content_scripts": [
