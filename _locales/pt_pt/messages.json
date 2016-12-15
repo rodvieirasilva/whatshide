@@ -1,0 +1,38 @@
+{
+  "descriptionApp":{
+	"message": "Esta extensão oculta os chats indesejáveis do WhatsApp Web",
+	"description" : "Descrição do Aplicativo"
+  },
+  "defaultTitle":{
+	"message": "Click para editar os chats indesejados do WhatsApp Web",
+	"description" : "Título para aparecer no hint"
+  },
+  "scopeDesc":{
+	"message":"Use os controles para esconder as conversas",
+	"description" :""
+  },
+  "scopeErrWrong":{
+	"message":"Senha inválida!",
+	"description" :""
+  },
+  "scopeBtnClear":{
+	"message":"Limpar",
+	"description" :""
+  },
+  "scopeBtnClearAll":{
+	"message":"Limpar Todos",
+	"description" :""
+  },
+  "scopeBtnChangepw":{
+	"message":"Adicionar/Mudar Senha",
+	"description" :""
+  },
+  "scopePlaceNewWord":{
+	"message":"Digite uma nova palavra aqui",
+	"description" :""
+  },
+  "scopePlaceNewpw":{
+	"message":"Senha aqui",
+	"description" :""
+  }
+}
