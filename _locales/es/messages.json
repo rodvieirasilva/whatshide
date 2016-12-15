@@ -1,38 +1,42 @@
 {
-  "descriptionApp":{
-	"message": "This extension hide Unwanted chats of WhatsApp Web",
-	"description" : "Description of App"
-  },
-  "defaultTitle":{
-	"message": "Click to Edit Unwanted chats of the WhatsApp Web",
-	"description" : "Title of the hint"
-  },
-  "scopeDesc":{
-	"message":"Use the toggle button to hide/show chats",
-	"description" :""
-  },
-  "scopeErrWrong":{
-	"message":"Password invalid!",
-	"description" :""
-  },
-  "scopeBtnClear":{
-	"message":"Clear",
-	"description" :""
-  },
-  "scopeBtnClearAll":{
-	"message":"Clear All",
-	"description" :""
-  },
-  "scopeBtnChangepw":{
-	"message":"Add/Change Password",
-	"description" :""
-  },
-  "scopePlaceNewWord":{
-	"message":"Input new word here",
-	"description" :""
-  },
-  "scopePlaceNewpw":{
-	"message":"Password here",
-	"description" :""
-  }
+    "descriptionApp": {
+        "message": "This extension hide Unwanted chats of WhatsApp Web",
+        "description": "Description of App"
+    },
+    "defaultTitle": {
+        "message": "Click to Edit Unwanted chats of the WhatsApp Web",
+        "description": "Title of the hint"
+    },
+    "wordExample": {
+        "message": "family",
+        "description": ""
+    },
+    "scopeDesc": {
+        "message": "Use the toggle button to hide/show chats",
+        "description": ""
+    },
+    "scopeErrWrong": {
+        "message": "Password invalid!",
+        "description": ""
+    },
+    "scopeBtnClear": {
+        "message": "Clear",
+        "description": ""
+    },
+    "scopeBtnClearAll": {
+        "message": "Clear All",
+        "description": ""
+    },
+    "scopeBtnChangepw": {
+        "message": "Add/Change Password",
+        "description": ""
+    },
+    "scopePlaceNewWord": {
+        "message": "Input new word here",
+        "description": ""
+    },
+    "scopePlaceNewpw": {
+        "message": "Password here",
+        "description": ""
+    }
 }

@@ -1,31 +1,29 @@
 {
-  "manifest_version": 2,  
-  
-  "name": "WhatsHide",
-  "description": "__MSG_descriptionApp__",
-  "version": "1.1",
-  
-  "default_locale" : "es",
+    "manifest_version": 2,
 
-  "browser_action": {
-    "default_icon": "images/icon.png",
-    "default_popup": "popup.html",
-    "default_title": "__MSG_defaultTitle__"
-  },
+    "name": "WhatsHide",
+    "description": "__MSG_descriptionApp__",
+    "version": "1.1",
 
-  "content_scripts": [
-    {
-      "matches": ["http://web.whatsapp.com/*", "https://web.whatsapp.com/*", "http://whatsapp.com/*", "https://whatsapp.com/*"],
-      "js": ["/scripts/jquery-3.1.0.min.js", "/scripts/filterdom.js"]
-    }
-  ],
+    "default_locale": "es",
+
+    "browser_action": {
+        "default_icon": "images/icon.png",
+        "default_popup": "popup.html",
+        "default_title": "__MSG_defaultTitle__"
+    },
+
+    "content_scripts": [{
+        "matches": ["http://web.whatsapp.com/*", "https://web.whatsapp.com/*", "http://whatsapp.com/*", "https://whatsapp.com/*"],
+        "js": ["/scripts/jquery-3.1.0.min.js", "/scripts/filterdom.js"]
+    }],
 
 
-  "permissions": [
-    "activeTab",
-    "https://ajax.googleapis.com/",
-    "storage"
-  ]
+    "permissions": [
+        "activeTab",
+        "https://ajax.googleapis.com/",
+        "storage"
+    ]
 
 
 

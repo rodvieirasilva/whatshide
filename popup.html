@@ -3,80 +3,78 @@
 
 -->
 <html ng-app="blockWhatsApp">
-<head>
-  <title>WhatsHide</title>
-  <script src="scripts/angular.min.js"></script>
-  <script src="scripts/popup.js"></script>
-  <link rel="stylesheet" href="css/popup.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
 
+<head>
+    <title>WhatsHide</title>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/popup.js"></script>
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 
 <body>
- 			<div class="up-part col-sm-12">
-				<a href="http://rowcode.com" target="_blank">
-					<img class="img-responsive" alt="WhatsHide" src="images/wh.png"/>
-				</a>
-			</div>
-	<div class="container">
- 		<div class="col-md-12">
+    <div class="up-part col-sm-12">
+        <a href="http://rowcode.com" target="_blank">
+            <img class="img-responsive" alt="WhatsHide" src="images/wh.png" />
+        </a>
+    </div>
+    <div class="container">
+        <div class="col-md-12">
 
-  			
-  			<div ng-controller="PopupController as popupController">
-    			
-				<div id="divContent" ng-show="popupController.showContent">
-				<span class="text-info text-center col-sm-12">{{desc}}</span>
-					<ul class="unstyled">
-						<li ng-repeat="word in popupController.words track by $index">
-							<div class="input-group row" >
-								<label class="checkbox-inline switch">
-									<input type="checkbox" ng-model="word.active" ng-click="popupController.saveChanges()">
-									<div class="slider round"></div>
-								</label>
-									<span class="itens active-{{word.active}}">{{word.value}}</span>
-								<a class="del"><i class="glyphicon glyphicon-trash pull-right" ng-click="popupController.clearSingle($index)"></i></a>	
-							
-							</div>
-						</li>
-					</ul>
-				
-					<form ng-submit="popupController.addWord()">
-						<div class="input-group">
-							<input class="form-control" type="text" ng-model="popupController.wordValue"  placeholder="{{place_newword}}" 	id="word" ng-focus="popupController.showContent">
-							<label class="input-group-btn">
-								<button class="btn btn-success" type="submit" value="add">
-									<i class="glyphicon glyphicon-plus"></i>
-								</button>
-							</label>
-						</div>
-					</form>
-					<div class="btn-group-sm buttons">
-						<a class="btn btn-success" href="" ng-click="popupController.clearUncheckeds()">{{btn_clear}}</a>
-						<a class="btn btn-success" href="" ng-click="popupController.clearAll()">{{btn_clearall}}</a>
-						<a class="btn btn-danger pull-right" href="" ng-click="popupController.addPassword()">{{btn_changepw}}</a>
-					</div>    	
-				</div>    			
-				<div id="divPassword" ng-show="popupController.showPassword">
-					<form ng-submit="popupController.addPasswordValue()" id="login-form">
-						<div class="input-group">
-							<input class="form-control" type="password" ng-model="popupController.passwordValue" placeholder="{{place_newpw}}" id="password">
-							<label class="input-group-btn">
-								<button class="btn btn-danger" type="submit"><i class="glyphicon glyphicon-log-in"></i></button>
-							</label>
-						</div>
-						<div class="alert alert-danger" role="alert" ng-show="popupController.showError">
-							<span class="sr-only">Error:</span>
-							{{err_wrong}}
-						</div>
-					</form>
-				</div>
-					
-  			</div>
-		</div>
-	</div><!--end container----------------------------------------->
-	<div class="bot-part col-sm-12">
-		<!-- <span class="text-muted">
+            <div ng-controller="PopupController as popupController">
+
+                <div id="divContent" ng-show="popupController.showContent">
+                    <span class="text-info text-center col-sm-12">{{desc}}</span>
+                    <ul class="unstyled">
+                        <li ng-repeat="word in popupController.words track by $index">
+                            <div class="input-group row">
+                                <label class="checkbox-inline switch">
+                									<input type="checkbox" ng-model="word.active" ng-click="popupController.saveChanges()">
+                									<div class="slider round"></div>
+								                </label>
+                                <span class="itens active-{{word.active}}">{{word.value}}</span>
+                                <a class="del"><i class="glyphicon glyphicon-trash pull-right" ng-click="popupController.clearSingle($index)"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <form ng-submit="popupController.addWord()">
+                        <div class="input-group">
+                            <input class="form-control" type="text" ng-model="popupController.wordValue" placeholder="{{place_newword}}" id="word" focus-on="popupController.showContent">
+                            <label class="input-group-btn">
+              								<button class="btn btn-success" type="submit" value="add">
+              									<i class="glyphicon glyphicon-plus"></i>
+              								</button>
+                            </label>
+                        </div>
+                    </form>
+                    <div class="btn-group-sm buttons">
+                        <a class="btn btn-success" href="" ng-click="popupController.clearUncheckeds()">{{btn_clear}}</a>
+                        <a class="btn btn-success" href="" ng-click="popupController.clearAll()">{{btn_clearall}}</a>
+                        <a class="btn btn-danger pull-right" href="" ng-click="popupController.addPasswordMode()">{{btn_changepw}}</a>
+                    </div>
+                </div>
+                <div id="divPassword" ng-show="!popupController.showContent">
+                    <form ng-submit="popupController.passwordEntered()" id="login-form">
+                        <div class="input-group">
+                            <input class="form-control" type="password" ng-model="popupController.passwordValue" placeholder="{{place_newpw}}" id="password" focus-on="!popupController.showContent">
+                            <label class="input-group-btn">
+								              <button class="btn btn-danger" type="submit"><i class="glyphicon glyphicon-log-in"></i></button>
+							              </label>
+                        </div>
+                        <div class="alert alert-danger" role="alert" ng-show="popupController.showError">
+                            <span class="sr-only">Error:</span> {{err_wrong}}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end container----------------------------------------->
+    <div class="bot-part col-sm-12">
+        <!-- <span class="text-muted">
 			use este espaco para fale-conosco, duvidas para, doe pra gente etc</span> -->
-	</div>
+    </div>
 </body>
+
 </html>

@@ -1,2 +1,2 @@
-# whatsapphidechat
-Small plugin for chrome that hides whatsapp web chats that contain some specific word
+# WhatsHide
+This extension hide Unwanted chats of WhatsApp Web

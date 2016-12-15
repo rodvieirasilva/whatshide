@@ -1,68 +1,95 @@
-//do some things
-setTimeout(continueExecution, 100); //wait ten seconds before continuing
+// Copyright (c) 2016 Lelis Alves, Rodrigo Vieira. All rights reserved.
+// Use of this source code is governed by a Apache license that can be
+// found in the LICENSE file.
 
-String.prototype.strip = function(){
- return this
-         .replace(/[áàãâä]/gi,"a")
-         .replace(/[éè¨ê]/gi,"e")
-         .replace(/[íìïî]/gi,"i")
-         .replace(/[óòöôõ]/gi,"o")
-         .replace(/[úùüû]/gi, "u")
-         .replace(/[ç]/gi, "c")
-         .replace(/[ñ]/gi, "n")
-         .replace(/[^a-zA-Z0-9]/g," ");
+
+setTimeout(initExecution, 100); //Init execution of the process all chats
+
+/**
+ * Strip special caracter of string
+ *  @memberof String
+ */
+String.prototype.strip = function() {
+    return this
+        .replace(/[áàãâä]/gi, "a")
+        .replace(/[éè¨ê]/gi, "e")
+        .replace(/[íìïî]/gi, "i")
+        .replace(/[óòöôõ]/gi, "o")
+        .replace(/[úùüû]/gi, "u")
+        .replace(/[ç]/gi, "c")
+        .replace(/[ñ]/gi, "n")
+        .replace(/[^a-zA-Z0-9]/g, " ");
 }
 
+/**
+ * Veirfy if a specific string contains any substring in subtrings param
+ *  @param {Array.<string>} subtrings Substrings Array to check if contains in string
+ *  @memberof String
+ */
 String.prototype.containsAny = function(substrings) {
-  for (var i = 0; i != substrings.length; i++) {    
-	  var substring = substrings[i].toLowerCase().strip();
-	  if (this.indexOf(substring) != - 1) {
-		return substring;
-	  }    
-  }
-  return null;
+    for (var i = 0; i != substrings.length; i++) {
+        var substring = substrings[i].toLowerCase().strip().split(" ");
+        var containsSub = true;
+        for (var j = 0; j < substring.length; j++) {
+            if (this.indexOf(substring[j]) == -1) {
+                containsSub = false;
+                break;
+            }
+        }
+        if (containsSub) {
+            return containsSub;
+        }
+    }
+    return false;
 }
 
+/**
+ * Process a chat of the WhatsApp Web
+ *  @param {number} index Index of the current chat
+ */
+function processChat(index) {
+    var el = $(this);
+    var str = el.html();
 
-function percorrerChats(index) {
-  var el = $(this);
-  var str = el.html();
-
-  if (str.toLowerCase().strip().containsAny(substrings)) {
-    el.parent().parent().hide();
-  }
-  else {
-    el.parent().parent().show();
-  }
-
+    if (str.toLowerCase().strip().containsAny(substrings)) {
+        el.parent().parent().hide();
+    } else {
+        el.parent().parent().show();
+    }
 }
+
+/**
+ * Var with the substrings of the storage
+ */
 var substrings;
 
+/**
+ * On get value of the current Storage
+ *  @param {Array.<Object>} item Arrays of Words in the storage
+ */
 function onGetValue(item) {
-  
-  substrings = [];
-  for(var i=0;i<item.words.length;i++)
-  {
-	  if(item.words[i].active)
-	  {
-		substrings = substrings.concat(item.words[i].value.split(" "));
-	  }
-  }
-  
-  var itens  = document.querySelectorAll(".chat");
-  $(itens).each(percorrerChats);
 
-  setTimeout(continueExecution, 100);
+    substrings = [];
+    if (item && item.words && Object.prototype.toString.call(item.words) === '[object Array]') {
+        for (var i = 0; i < item.words.length; i++) {
+            if (item.words[i].active) {
+                substrings = substrings.concat(item.words[i].value);
+            }
+        }
+    }
+    //Get All chats
+    var itens = document.querySelectorAll(".chat");
+
+    //Process all chats
+    $(itens).each(processChat);
+
+    //Continue the execution
+    setTimeout(initExecution, 100);
 }
 
-function continueExecution() {
-  chrome.storage.sync.get('words', onGetValue);
+/**
+ * init Execution
+ */
+function initExecution() {
+    chrome.storage.sync.get('words', onGetValue);
 }
-
-
-/*menu-item menu-shortcut
-class="dropdown"
-<li tabindex="-1" class="menu-item menu-shortcut" style="opacity: 1; transform: translateY(0px);">
-<a class="ellipsify" title="Marcar como não lida">Marcar como não lida</a></li>
-
-*/
