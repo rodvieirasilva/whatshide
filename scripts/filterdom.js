@@ -27,12 +27,13 @@ String.prototype.strip = function() {
  *  @memberof String
  */
 String.prototype.containsAny = function(substrings) {
+    
     for (var i = 0; i != substrings.length; i++) {
         var substring = substrings[i].toLowerCase().strip().split(" ");
         var containsSub = true;
         for (var j = 0; j < substring.length; j++) {
             if (this.indexOf(substring[j]) == -1) {
-                containsSub = false;
+                containsSub = false;                
                 break;
             }
         }
@@ -78,7 +79,7 @@ function onGetValue(item) {
         }
     }
     //Get All chats
-    var itens = document.querySelectorAll(".chat");
+    var itens = document.querySelectorAll("._2EXPL");
 
     //Process all chats
     $(itens).each(processChat);
