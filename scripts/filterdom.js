@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 
-setTimeout(initExecution, 100); //Init execution of the process all chats
+setTimeout(initExecution, 1000); //Init execution of the process all chats
 
 /**
  * Strip special caracter of string
@@ -53,9 +53,9 @@ function processChat(index) {
     var str = el.html();
 
     if (str.toLowerCase().strip().containsAny(substrings)) {
-        el.parent().parent().hide();
+        el.hide();
     } else {
-        el.parent().parent().show();
+        el.show();
     }
 }
 
@@ -79,13 +79,13 @@ function onGetValue(item) {
         }
     }
     //Get All chats
-    var itens = document.querySelectorAll("._2EXPL");
+    var itens = document.querySelectorAll(".X7YrQ");
 
     //Process all chats
     $(itens).each(processChat);
 
     //Continue the execution
-    setTimeout(initExecution, 100);
+    setTimeout(initExecution, 1000);
 }
 
 /**
