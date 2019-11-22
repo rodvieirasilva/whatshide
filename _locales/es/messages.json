@@ -1,10 +1,10 @@
 {
     "descriptionApp": {
-        "message": "This extension hide Unwanted chats of WhatsApp Web",
+        "message": "Unofficial enhacement for Whats. This extension is not related in any way to WhatsApp Inc., hide Unwanted chats of WhatsApp Web",
         "description": "Description of App"
     },
     "defaultTitle": {
-        "message": "Click to Edit Unwanted chats of the WhatsApp Web",
+        "message": "Click to Edit Unwanted chats",
         "description": "Title of the hint"
     },
     "wordExample": {
