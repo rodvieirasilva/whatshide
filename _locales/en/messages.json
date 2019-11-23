@@ -1,10 +1,10 @@
 {
     "descriptionApp": {
-        "message": "NO está relacionado de ninguna manera con WhatsApp Inc., esta extensión oculta los chats privados de WhatsApp Web",
+        "message": "NOT related in any way to WhatsApp Inc., This Extension hides private chats of WhatsApp Web.",
         "description": "Description of App"
     },
     "defaultTitle": {
-        "message": "Haga clic para editar chats privados",
+        "message": "Click to Edit Private chats",
         "description": "Title of the hint"
     },
     "wordExample": {
@@ -12,31 +12,31 @@
         "description": ""
     },
     "scopeDesc": {
-        "message": "Use el botón de alternar para ocultar/mostrar chats",
+        "message": "Use the toggle button to hide/show chats",
         "description": ""
     },
     "scopeErrWrong": {
-        "message": "¡Contraseña incorrecta!",
+        "message": "Password invalid!",
         "description": ""
     },
     "scopeBtnClear": {
-        "message": "Borrar",
+        "message": "Clear",
         "description": ""
     },
     "scopeBtnClearAll": {
-        "message": "Borrar todo",
+        "message": "Clear All",
         "description": ""
     },
     "scopeBtnChangepw": {
-        "message": "Agregar/Cambiar contraseña",
+        "message": "Add/Change Password",
         "description": ""
     },
     "scopePlaceNewWord": {
-        "message": "Ingrese una nueva palabra aquí",
+        "message": "Input new word here",
         "description": ""
     },
     "scopePlaceNewpw": {
-        "message": "Contraseña aquí",
+        "message": "Password here",
         "description": ""
     }
 }

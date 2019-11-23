@@ -1,10 +1,10 @@
 {
     "descriptionApp": {
-        "message": "Esta é uma extensão NÃO oficial para o WhatsApp Web. Esta extensão NÃO está relacionada com WhatsApp Inc., esta extensão oculta os chats indesejáveis do WhatsApp Web",
+        "message": "Esta extensão NÃO está relacionada com WhatsApp Inc., oculta os chats privados do WhatsApp Web.",
         "description": "Descrição do Aplicativo"
     },
     "defaultTitle": {
-        "message": "Click para editar os chats indesejados",
+        "message": "Click para editar os chats privados",
         "description": "Título para aparecer no hint"
     },
     "wordExample": {
