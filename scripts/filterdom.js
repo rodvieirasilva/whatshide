@@ -79,7 +79,7 @@ function onGetValue(item) {
         }
     }
     //Get All chats
-    var itens = document.querySelectorAll(".X7YrQ");
+    var itens = document.querySelectorAll("._2wP_Y");
 
     //Process all chats
     $(itens).each(processChat);
