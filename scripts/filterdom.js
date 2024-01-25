@@ -9,7 +9,7 @@ setTimeout(initExecution, 1000); //Init execution of the process all chats
  * Strip special caracter of string
  *  @memberof String
  */
-String.prototype.strip = function() {
+String.prototype.strip = function () {
     return this
         .replace(/[áàãâä]/gi, "a")
         .replace(/[éè¨ê]/gi, "e")
@@ -26,14 +26,14 @@ String.prototype.strip = function() {
  *  @param {Array.<string>} subtrings Substrings Array to check if contains in string
  *  @memberof String
  */
-String.prototype.containsAny = function(substrings) {
-    
+String.prototype.containsAny = function (substrings) {
+
     for (var i = 0; i != substrings.length; i++) {
         var substring = substrings[i].toLowerCase().strip().split(" ");
         var containsSub = true;
         for (var j = 0; j < substring.length; j++) {
             if (this.indexOf(substring[j]) == -1) {
-                containsSub = false;                
+                containsSub = false;
                 break;
             }
         }
@@ -59,11 +59,30 @@ function processChat(index) {
     }
 }
 
+var whatsappAllChatSelector = undefined;
+
+function getChatSelector(callback) {
+    if (whatsappAllChatSelector) {
+        return callback(whatsappAllChatSelector);
+    }
+    $.get("https://api.jsonsilo.com/public/16e3e062-84a0-4a49-8c1d-ba42b07da8c0").always(
+        function (data) {
+            var selector = ".lhggkp7q";
+            if (data && data.whatsapp_all_chat_selector) {
+                selector = data.whatsapp_all_chat_selector;
+            }
+            whatsappAllChatSelector = selector;
+            callback(whatsappAllChatSelector);
+        }
+    );
+}
+
 /**
  * Var with the substrings of the storage
  */
 var substrings;
 
+var currentTimeout = undefined;
 /**
  * On get value of the current Storage
  *  @param {Array.<Object>} item Arrays of Words in the storage
@@ -78,14 +97,17 @@ function onGetValue(item) {
             }
         }
     }
-    //Get All chats
-    var itens = document.querySelectorAll("._2wP_Y");
+    getChatSelector(
+        function (selector) {
+            clearTimeout(currentTimeout);
+            var itens = document.querySelectorAll(selector);
+            //Process all chats
+            $(itens).each(processChat);
+            //Continue the execution
+            currentTimeout = setTimeout(initExecution, 1000);
+        }
+    )
 
-    //Process all chats
-    $(itens).each(processChat);
-
-    //Continue the execution
-    setTimeout(initExecution, 1000);
 }
 
 /**
