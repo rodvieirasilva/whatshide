@@ -52,11 +52,11 @@ function processChat(index) {
     var el = $(this);
     var str = el.html();
 
-    if (str.toLowerCase().strip().containsAny(substrings)) {
-        el.hide();
-    } else {
-        el.show();
-    }
+     if (str.toLowerCase().strip().containsAny(substrings)) {
+         el.hide();
+     } else if (str) {
+         el.show();
+     }
 }
 
 var whatsappAllChatSelector = undefined;
